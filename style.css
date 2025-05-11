@@ -137,6 +137,7 @@ h1 {
   height: 30px;
   background-color: var(--corazon);
   border-radius: 100%;
+
 }
 
 .corazon:before {
@@ -146,3 +147,76 @@ h1 {
 .corazon:after {
   right: 15px;
 }
+
+/*Agregar clases dinamicos*/
+.abierto .sobre::before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.abierto .corazon {
+  transform: rotate(90deg);
+  transition-delay: 0.4s;
+}
+
+.carta.mostrar-carta {
+  transform: translateY(-290px);
+  transition: transform .5s ease-in-out;
+}
+
+.carta.cerrando-carta {
+  transform: translateY(-290px);
+  transition: transform .5s ease-in-out;
+}
+
+.carta.abierta {
+  z-index: 10000;
+}
+
+.envoltura-sobre.desactivar-sobre .sobre::before {
+  pointer-events: none;
+}
+
+/*Scroll personalizado*/
+
+/*
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--cuerpo-sobre);
+  border-radius: 4px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--corazon);
+}
+*/
+
+/*Vista celular*/
+
+@media screen and (max-width:400px) {
+  .contenedor {
+      width: 300px;
+  }
+
+  .sobre {
+      width: 300px;
+      height: 250px;
+  }
+
+  .sobre::before {
+      border-top:150px solid var(--solapa-sobre) ;
+      border-right: 150px solid transparent;
+      border-left: 150px solid transparent;
+  }
+
+}
+
